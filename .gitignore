@@ -3,3 +3,11 @@ dist
 .env
 .env.*
 !.env.example
+
+/generated/prisma
+coverage/
+logs/
+*.log
+.DS_Store
+.vscode/
+.idea/
