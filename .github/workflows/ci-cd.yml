@@ -26,10 +26,10 @@ jobs:
           - 5432:5432
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
           node-version: "22"
           cache: "npm"
@@ -54,7 +54,7 @@ jobs:
         run: npm run build
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
           files: ./coverage/coverage-final.json
 
@@ -64,7 +64,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
       - name: Deploy to Render
         run: |
