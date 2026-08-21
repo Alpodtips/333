@@ -1,3 +1,7 @@
+databases:
+  - name: 333-db
+    plan: free
+
 services:
   - type: web
     name: 333-api
@@ -7,9 +11,11 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: 333-db
+          property: connectionString
       - key: JWT_SECRET
-        sync: false
+        generateValue: true
       - key: APP_URL
         sync: false
       - key: RESEND_API_KEY
